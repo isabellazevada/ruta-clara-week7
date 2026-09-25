@@ -13,7 +13,7 @@ function render(){
   $('choices').hidden=answered;
   $('review').hidden=!answered;
   $('review-text').textContent=answered?`${contextLabels[context]}. La explicación de la conductora queda pendiente de revisión humana; el sistema no confirma culpabilidad.`:'';
-  $('unresolved').textContent=answered?'0':'1';
+  $('unresolved').textContent='1';
   $('contextualized').textContent=answered?'1':'0';
   $('sanctions').textContent='0';
 }
