@@ -6,14 +6,14 @@ const contextLabels={peatón:'Había peatón',bache:'Había un bache',vehículo:
 const model=train();
 let context=null;
 const probability=infer(model,simulatedTrip.samples[0].window);
-$('probability').textContent=`${Math.round(probability*100)}% de probabilidad de frenada intensa`;
+$('probability').textContent=`${Math.round(probability*100)}% de señal de frenada intensa`;
 $('uncertainty').textContent='No explica la causa';
 function render(){
   const answered=context!==null;
   $('choices').hidden=answered;
   $('review').hidden=!answered;
-  $('review-text').textContent=answered?`${contextLabels[context]}. La explicación de la conductora queda pendiente de revisión humana; el sistema no confirma culpabilidad.`:'';
-  $('unresolved').textContent='1';
+  $('review-text').textContent=answered?`${contextLabels[context]}. Tu respuesta quedó registrada solo en esta pantalla y se borra al recargar. El sistema no confirma culpabilidad.`:'';
+  $('unresolved').textContent='1'; // No human reviewer is active in this demo.
   $('contextualized').textContent=answered?'1':'0';
   $('sanctions').textContent='0';
 }
